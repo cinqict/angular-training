@@ -14,16 +14,19 @@ export class OverviewComponent implements OnInit {
   public ngOnInit(): void {
     this.races = [
       {
+        id: '1',
         name: 'Bahrain International Circuit',
         location: 'Bahrain',
         date: '2022-03-20'
       },
       {
+        id: '2',
         name: 'Saudi Arabian Grand Prix',
         location: 'Saudi Arabia',
         date: '2022-03-27'
       },
       {
+        id: '3',
         name: 'Albert Park Grand Prix Circuit',
         location: 'Australia',
         date: '2022-04-10'
