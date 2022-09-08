@@ -1,1 +1,14 @@
-<a [routerLink]="['detail', race?.id]">{{ race?.name }}</a>
+<article>
+  <header>#{{ race?.round }} {{ race?.Circuit?.circuitName }} ({{ race?.Circuit?.Location?.country }})</header>
+  <div>
+    <div><strong>First:</strong> {{ race?.FirstPractice?.date }} {{ race?.FirstPractice?.time }}</div>
+    <div><strong>Second:</strong> {{ race?.SecondPractice?.date }} {{ race?.SecondPractice?.time }}</div>
+    <div><strong>Third:</strong> {{ race?.ThirdPractice?.date }} {{ race?.ThirdPractice?.time }}</div>
+    <div><strong>Qualifying:</strong> {{ race?.Qualifying?.date }} {{ race?.Qualifying?.time }}</div>
+    <div><strong>Sprint:</strong> {{ race?.Sprint?.date }} {{ race?.Sprint?.time }}</div>
+    <div><strong>Race:</strong> {{ race?.date }} {{ race?.time }}</div>
+  </div>
+  <footer>
+    <a [routerLink]="['detail', race?.round]" role="button">More</a>
+  </footer>
+</article>

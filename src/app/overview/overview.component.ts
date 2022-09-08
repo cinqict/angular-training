@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Race } from '../shared/races/races.model';
+import { RacesService } from '../shared/races/races.service';
 
 @Component({
   selector: 'app-overview',
@@ -9,28 +11,11 @@ import { Race } from '../shared/races/races.model';
 export class OverviewComponent implements OnInit {
   public title: string = 'Overview';
   public year: number = 2022;
-  public races: Race[] = [];
+  public races: Observable<Race[]> = of([]);
+
+  constructor(private readonly racesService: RacesService) {}
 
   public ngOnInit(): void {
-    this.races = [
-      {
-        id: '1',
-        name: 'Bahrain International Circuit',
-        location: 'Bahrain',
-        date: '2022-03-20'
-      },
-      {
-        id: '2',
-        name: 'Saudi Arabian Grand Prix',
-        location: 'Saudi Arabia',
-        date: '2022-03-27'
-      },
-      {
-        id: '3',
-        name: 'Albert Park Grand Prix Circuit',
-        location: 'Australia',
-        date: '2022-04-10'
-      }
-    ];
+    this.races = this.racesService.getRaces();
   }
 }

@@ -1,2 +1,2 @@
 <h1>{{ title }} {{ year }}</h1>
-<app-overview-item *ngFor="let race of races" [race]="race"></app-overview-item>
+<app-overview-item *ngFor="let race of races | async" [race]="race"></app-overview-item>
