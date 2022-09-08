@@ -1,0 +1,6 @@
+<blockquote *ngFor="let comment of comments">
+  {{ comment.comment }}
+  <footer>
+    <cite>- {{ comment.firstname }} {{ comment.lastname }} {{ comment.age }}</cite>
+  </footer>
+</blockquote>

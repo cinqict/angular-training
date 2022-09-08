@@ -1,0 +1,43 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="grid">
+    <label for="firstname">
+      First name
+      <input
+        type="text"
+        id="firstname"
+        name="firstname"
+        placeholder="First name"
+        formControlName="firstname"
+        [attr.aria-invalid]="
+          form.get('firstname')?.invalid && (form.get('firstname')?.dirty || form.get('firstname')?.touched) ? true : null
+        "
+      />
+    </label>
+
+    <label for="lastname">
+      Last name
+      <input type="text" id="lastname" name="lastname" placeholder="Last name" formControlName="lastname" />
+    </label>
+  </div>
+
+  <label for="email">Email address</label>
+  <input type="email" id="email" name="email" placeholder="Email address" formControlName="email" />
+
+  <label for="age">Age</label>
+  <input type="number" id="age" name="age" placeholder="Age" formControlName="age" />
+
+  <label for="comment">Comment</label>
+  <textarea
+    id="comment"
+    name="comment"
+    placeholder="Comment"
+    formControlName="comment"
+    [attr.aria-invalid]="form.get('comment')?.invalid && (form.get('comment')?.dirty || form.get('comment')?.touched) ? true : null"
+  ></textarea>
+  <div *ngIf="form.get('comment')?.invalid && (form.get('comment')?.dirty || form.get('comment')?.touched)">
+    <p *ngIf="form.get('comment')?.errors?.['required']">Comment required.</p>
+    <p *ngIf="form.get('comment')?.errors?.['forbidden']">Remove forbidden word.</p>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>

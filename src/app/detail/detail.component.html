@@ -1,1 +1,7 @@
-<p>detail works!</p>
+<article>
+  <header>#{{ race?.round | zeroPad: 2 }} {{ race?.Circuit?.circuitName }} ({{ race?.Circuit?.Location?.country }})</header>
+  <app-list [raceId]="raceId" type="all"></app-list>
+  <footer>
+    <app-form [raceId]="raceId" type="all"></app-form>
+  </footer>
+</article>
