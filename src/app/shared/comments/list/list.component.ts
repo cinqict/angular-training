@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Comment, CommentType } from '../comment.model';
 import { CommentsService } from '../comments.service';
 
@@ -7,19 +8,17 @@ import { CommentsService } from '../comments.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnChanges {
   @Input() public raceId: number | undefined;
   @Input() public type: CommentType = 'all';
 
-  public comments: Comment[] = [];
+  public comments: Observable<Comment[]> = of([]);
 
   constructor(private readonly commentsService: CommentsService) {}
 
-  public ngOnInit(): void {
+  public ngOnChanges(): void {
     if (this.raceId) {
-      this.commentsService.getComments(this.raceId, this.type).subscribe((comments: Comment[]) => {
-        this.comments = comments;
-      });
+      this.comments = this.commentsService.getComments(this.raceId, this.type);
     }
   }
 }

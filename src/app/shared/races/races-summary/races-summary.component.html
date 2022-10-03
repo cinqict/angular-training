@@ -1,0 +1,25 @@
+<article>
+  <header *ngIf="!showAsSummary">
+    #{{ race?.round | zeroPad: 2 }} {{ race?.Circuit?.circuitName }} ({{ race?.Circuit?.Location?.country }})
+  </header>
+  <div>
+    <div><strong>First:</strong> <app-date-time [date]="race?.FirstPractice?.date" [time]="race?.FirstPractice?.time"></app-date-time></div>
+    <div>
+      <strong>Second:</strong> <app-date-time [date]="race?.SecondPractice?.date" [time]="race?.SecondPractice?.time"></app-date-time>
+    </div>
+    <div *ngIf="race?.ThirdPractice">
+      <strong>Third:</strong> <app-date-time [date]="race?.ThirdPractice?.date" [time]="race?.ThirdPractice?.time"></app-date-time>
+    </div>
+    <div>
+      <strong>Qualifying:</strong>
+      <app-date-time displayAs="time" [date]="race?.Qualifying?.date" [time]="race?.Qualifying?.time"></app-date-time>
+    </div>
+    <div *ngIf="race?.Sprint">
+      <strong>Sprint:</strong> <app-date-time [date]="race?.Sprint?.date" [time]="race?.Sprint?.time"></app-date-time>
+    </div>
+    <div><strong>Race:</strong> <app-date-time [date]="race?.date" [time]="race?.time"></app-date-time></div>
+  </div>
+  <footer *ngIf="!showAsSummary">
+    <a [routerLink]="['detail', race?.round]" role="button">More</a>
+  </footer>
+</article>

@@ -1,4 +1,4 @@
-<blockquote *ngFor="let comment of comments">
+<blockquote *ngFor="let comment of comments | async">
   {{ comment.comment }}
   <footer>
     <cite>- {{ comment.firstname }} {{ comment.lastname }} {{ comment.age }}</cite>

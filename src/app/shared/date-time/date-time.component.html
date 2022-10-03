@@ -1,0 +1,8 @@
+<ng-container *ngIf="date && time">
+  <ng-container *ngIf="displayAs === 'datetime'">
+    {{ date + ' ' + time | date: 'MM/dd/YYYY | HH:mm' }}
+  </ng-container>
+  <ng-container *ngIf="displayAs === 'time'">
+    {{ date + ' ' + time | date: 'HH:mm' }}
+  </ng-container>
+</ng-container>

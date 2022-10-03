@@ -1,0 +1,25 @@
+<div [attr.aria-busy]="!qualifyingResult.length">
+  <table *ngIf="qualifyingResult.length">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Driver</th>
+        <th scope="col">Q1</th>
+        <th scope="col">Q2</th>
+        <th scope="col">Q3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of qualifyingResult">
+        <th scope="row">{{ result.position }}</th>
+        <td>
+          {{ result.Driver.givenName }} {{ result.Driver.familyName }}<br />
+          <small>{{ result.Constructor.name }}</small>
+        </td>
+        <td>{{ result.Q1 }}</td>
+        <td>{{ result.Q2 }}</td>
+        <td>{{ result.Q3 }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

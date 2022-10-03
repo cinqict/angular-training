@@ -1,4 +1,4 @@
-export type CommentType = 'all' | 'first' | 'second' | 'third' | 'qualify' | 'sprint' | 'race';
+export type CommentType = 'all' | 'qualifying' | 'sprint' | 'race';
 
 export interface Comment {
   firstname: string;

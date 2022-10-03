@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { delay, map, Observable } from 'rxjs';
 import { Race, RaceResponse } from './races.model';
 
 @Injectable({
@@ -16,8 +16,16 @@ export class RacesService {
   }
 
   public getRace(id: number): Observable<Race> {
-    return this.http
-      .get<RaceResponse>(`https://ergast.com/api/f1/2022/${id}.json`)
-      .pipe(map((response: RaceResponse) => response.MRData.RaceTable.Races[0]));
+    return this.http.get<RaceResponse>(`https://ergast.com/api/f1/2022/${id}.json`).pipe(
+      delay(1000),
+      map((response: RaceResponse) => response.MRData.RaceTable.Races[0])
+    );
+  }
+
+  public getResults(id: number, type: 'qualifying' | 'sprint' | 'results'): Observable<Race> {
+    return this.http.get<RaceResponse>(`https://ergast.com/api/f1/2022/${id}/${type}.json`).pipe(
+      delay(1000),
+      map((response: RaceResponse) => response.MRData.RaceTable.Races[0] ?? {})
+    );
   }
 }
