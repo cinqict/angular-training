@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverviewItemComponent } from './overview-item.component';
+import { DateTimeComponent } from './date-time.component';
 
-describe('OverviewItemComponent', () => {
-  let component: OverviewItemComponent;
-  let fixture: ComponentFixture<OverviewItemComponent>;
+describe('DateTimeComponent', () => {
+  let component: DateTimeComponent;
+  let fixture: ComponentFixture<DateTimeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OverviewItemComponent]
+      declarations: [DateTimeComponent]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(OverviewItemComponent);
+    fixture = TestBed.createComponent(DateTimeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
