@@ -1,0 +1,25 @@
+<div [attr.aria-busy]="!sprintResult.length">
+  <table *ngIf="sprintResult.length">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Driver</th>
+        <th scope="col">Points</th>
+        <th scope="col">Fastest Lap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of sprintResult">
+        <th scope="row">{{ result.position }}</th>
+        <td>
+          {{ result.Driver.givenName }} {{ result.Driver.familyName }}<br />
+          <small>{{ result.Constructor.name }}</small>
+        </td>
+        <td>{{ result.points }}</td>
+        <td>
+          <ng-container *ngIf="result.FastestLap"> {{ result.FastestLap.lap }} - {{ result.FastestLap.Time.time }} </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

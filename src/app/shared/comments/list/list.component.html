@@ -1,0 +1,17 @@
+<!-- AS SUBSCRIBE ON OBSERVERABLE AND PROPERTY  -->
+<blockquote *ngFor="let comment of commentsWithASubscribe; let index = index">
+  {{ index + 1 }} {{ comment.comment }}
+  <footer>
+    <cite>- {{ comment.firstname }} {{ comment.lastname }} {{ comment.age }}</cite>
+  </footer>
+</blockquote>
+
+{{ (commentsAsync | async)?.length }}
+
+<!-- AS ASYNC -->
+<blockquote *ngFor="let comment of commentsAsync | async; let index = index">
+  {{ index + 1 }} {{ comment.comment }}
+  <footer>
+    <cite>- {{ comment.firstname }} {{ comment.lastname }} {{ comment.age }}</cite>
+  </footer>
+</blockquote>

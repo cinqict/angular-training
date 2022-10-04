@@ -1,0 +1,26 @@
+<div [attr.aria-busy]="race === undefined">
+  <ng-container *ngIf="race">
+    <nav>
+      <ul>
+        <li>
+          <strong>{{ race.raceName }}</strong>
+        </li>
+      </ul>
+      <ul>
+        <li><a [routerLink]="['./']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Summary</a></li>
+        <li *ngIf="race.Qualifying"><a [routerLink]="['./', 'qualifying']" routerLinkActive="active">Qualifying</a></li>
+        <li *ngIf="race.Sprint"><a [routerLink]="['./', 'sprint']" routerLinkActive="active">Sprint</a></li>
+        <li><a [routerLink]="['./', 'race']" routerLinkActive="active">Race</a></li>
+        <li><a [routerLink]="['/']">Back</a></li>
+      </ul>
+    </nav>
+    <app-races-summary [race]="race" [showAsSummary]="true"></app-races-summary>
+    <router-outlet></router-outlet>
+    <article>
+      <app-list [raceId]="raceId" [type]="commentType"></app-list>
+      <footer>
+        <app-form [raceId]="raceId" [type]="commentType"></app-form>
+      </footer>
+    </article>
+  </ng-container>
+</div>

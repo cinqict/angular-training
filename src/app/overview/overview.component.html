@@ -1,0 +1,2 @@
+<h1>{{ title }} {{ year }}</h1>
+<app-races-summary *ngFor="let race of races | async" [race]="race"></app-races-summary>
