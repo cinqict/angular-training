@@ -24,7 +24,7 @@
         <td>
           <ng-container *ngIf="result.FastestLap"> {{ result.FastestLap.lap }} - {{ result.FastestLap.Time.time }} </ng-container>
         </td>
-        <td>{{ result.status }}</td>
+        <td appHighlight>{{ result.status }}</td>
       </tr>
     </tbody>
   </table>

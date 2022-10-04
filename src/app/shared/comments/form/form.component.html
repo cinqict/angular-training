@@ -31,12 +31,12 @@
     id="comment"
     name="comment"
     placeholder="Comment"
-    formControlName="comment"
-    [attr.aria-invalid]="form.get('comment')?.invalid && (form.get('comment')?.dirty || form.get('comment')?.touched) ? true : null"
+    [formControl]="commentControl"
+    [attr.aria-invalid]="commentControl.invalid && (commentControl.dirty || commentControl.touched) ? true : null"
   ></textarea>
-  <div *ngIf="form.get('comment')?.invalid && (form.get('comment')?.dirty || form.get('comment')?.touched)">
-    <p *ngIf="form.get('comment')?.errors?.['required']">Comment required.</p>
-    <p *ngIf="form.get('comment')?.errors?.['forbidden']">Remove forbidden word.</p>
+  <div *ngIf="commentControl.invalid && (commentControl.dirty || commentControl.touched)">
+    <p *ngIf="commentControl.errors?.['required']">Comment required.</p>
+    <p *ngIf="commentControl.errors?.['forbidden']">Remove forbidden word.</p>
   </div>
 
   <button type="submit" [disabled]="form.invalid">Submit</button>

@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./overview/overview.module').then((m: typeof import('./overview/overview.module')) => m.OverviewModule)
   },
   {
-    path: 'detail',
+    path: 'detail/:id',
     loadChildren: () => import('./detail/detail.module').then((m: typeof import('./detail/detail.module')) => m.DetailModule)
   },
   {

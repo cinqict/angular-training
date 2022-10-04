@@ -7,10 +7,11 @@ import { RacesSummaryModule } from '../shared/races/races-summary/races-summary.
 import { DetailQualifyingComponent } from './detail-qualifying/detail-qualifying.component';
 import { DetailSprintComponent } from './detail-sprint/detail-sprint.component';
 import { DetailResultsComponent } from './detail-results/detail-results.component';
+import { HighlightModule } from '../shared/highlight/highlight.module';
 
 const routes: Routes = [
   {
-    path: ':id',
+    path: '',
     component: DetailComponent,
     children: [
       {
@@ -30,7 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes), RacesSummaryModule, CommentsModule],
+  imports: [CommonModule, RouterModule.forChild(routes), RacesSummaryModule, CommentsModule, HighlightModule],
   declarations: [DetailComponent, DetailQualifyingComponent, DetailSprintComponent, DetailResultsComponent]
 })
 export class DetailModule {}
