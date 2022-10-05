@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Category 1",
+    "subcategories": [
+      {
+        "id": 1,
+        "name": "Subcat 1 from cat 1"
+      },
+      {
+        "id": 2,
+        "name": "Subcat 2 from cat 1"
+      },
+      {
+        "id": 3,
+        "name": "Subcat 3 from cat 1"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Category 2",
+    "subcategories": [
+      {
+        "id": 1,
+        "name": "Subcat 1 from cat 2"
+      },
+      {
+        "id": 2,
+        "name": "Subcat 2 from cat 2"
+      },
+      {
+        "id": 3,
+        "name": "Subcat 3 from cat 2"
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+<h1>Categories</h1>
+<div class="grid">
+  <app-card *ngFor="let category of allCategories" [categoryId]="category.id" (goBackToParent)="receiveGoToParent($event)">
+    {{ category.name }}
+  </app-card>
+</div>

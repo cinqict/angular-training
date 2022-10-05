@@ -1,0 +1,6 @@
+<h1>Sub Categories from {{ categoryId }}</h1>
+<div class="grid">
+  <app-card *ngFor="let subCategory of subCategories | async" [categoryId]="categoryId" [subCategoryId]="subCategory.id">
+    {{ subCategory.name }}
+  </app-card>
+</div>
